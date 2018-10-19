@@ -39,7 +39,7 @@ task main() {
 	startTask(arm_init);
 	startTask(armServ_init);
 	wait1Msec(10000);
-	if(vexRT[Btn8U] == 1){
+	if(vexRT[Btn8U] != 1){
 		stopAllTasks();
 		return;
 	}
