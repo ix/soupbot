@@ -42,10 +42,10 @@ task autonomous() {
 	SensorValue[led] = 1;
 	oi_armServ_setPos(120);
 	wait1Msec(400);
-	auton_driveUntilEncReached(80, 127);
+	auton_driveUntilEncReached(100, 127);
 	wait1Msec(400);
 	oi_arm_setPosition(100);
-	wait1Msec(400);
+	wait1Msec(700);
 	auton_driveUntilEncReached(425, -127);
 	wait1Msec(400);
 	auton_driveHUntilEncReached(435, 127);

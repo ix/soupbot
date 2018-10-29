@@ -38,26 +38,15 @@ task main() {
 	startTask(drive_init);
 	startTask(arm_init);
 	startTask(armServ_init);
-	wait1Msec(10000);
-	if(vexRT[Btn8U] != 1){
-		stopAllTasks();
-		return;
-	}
-	clearTimer(T1);
-	startTask(autonomous);
-	while(time1[T1] < 15000){}
-	stopTask(autonomous);
-	startTask(teleoperated);
 	// DEBUG
 	while(true) {
 		if ((vexRT[Btn7L] == 1) && (vexRT[Btn7R] == 1)) {
-			wait1Msec(500);
 			stopTask(teleoperated);
 			startTask(autonomous);
 		}
-		if((vexRT[Btn7U] == 1) && (vexRT[Btn7D] == 1)){
-			wait1Msec(500);
+		if ((vexRT[Btn7U] == 1) && (vexRT[Btn7D] == 1)) {
 			stopTask(autonomous);
+			oi_arm_setPosition(0);
 			startTask(teleoperated);
 		}
 	} // just wait forever
